@@ -14,6 +14,11 @@ public class Collegue {
     
    
     
+    
+    public Collegue() {
+        super();
+    }
+    
     public Collegue(String nom, String prenom, String email, LocalDate dateDeNaissance,
             String photoUrl) {
         super();
@@ -62,7 +67,7 @@ public class Collegue {
     }
     @Override
     public String toString() {
-        return "Collegue [matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
+        return "matricule : " + matricule + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
                 + ", dateDeNaissance=" + dateDeNaissance + ", photoUrl=" + photoUrl + "]";
     }
     
