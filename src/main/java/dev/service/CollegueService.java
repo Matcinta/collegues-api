@@ -57,11 +57,11 @@ public class CollegueService {
     }
     
     
-//    public Collegue ajouterUnCollegue (Collegue collegueAAjouter) {
-//        
-//        Collegue collegue = new Collegue();
+    public Collegue ajouterUnCollegue (Collegue collegueAAjouter) {
+        
+    	return new Collegue("Martin", "Denis", "denis.martin@dta.fr", LocalDate.of(5, 10, 2000), "http://monimage.fr");
    
-//    }
+    }
     
     
     
