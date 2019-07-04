@@ -32,8 +32,8 @@ public class Collegue {
     public String getMatricule() {
         return matricule;
     }
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public String setMatricule(String matricule) {
+        return this.matricule = matricule;
     }
     public String getNom() {
         return nom;
