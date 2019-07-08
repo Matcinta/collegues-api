@@ -2,8 +2,13 @@ package dev.service;
 
 public class CollegueInvalideException extends RuntimeException {
 
+    
     CollegueInvalideException(){
-            super("Erreur de saisie");
+        super();
+    }
+    
+    CollegueInvalideException(String s){
+            super(s);
         }
         
     }

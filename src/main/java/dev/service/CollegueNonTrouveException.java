@@ -4,7 +4,14 @@ public class CollegueNonTrouveException extends RuntimeException {
 
     
     CollegueNonTrouveException(){
-        super("Aucun employé n'est référencé sous ce matricule");
+        super();
     }
     
+    CollegueNonTrouveException(String s){
+        super(s);
+    }
+    
+    
+    
 }
+

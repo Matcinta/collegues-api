@@ -3,20 +3,29 @@ package dev;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+@Entity
 public class Collegue {
 
+    @Id
     private String matricule;
     private String nom;
     private String prenom;
     private String email;
     private LocalDate dateDeNaissance;
     private String photoUrl;
-    
-   
-    
+  
     
     public Collegue() {
-        super();
+        this.matricule = UUID.randomUUID().toString();
     }
     
     public Collegue(String nom, String prenom, String email, LocalDate dateDeNaissance,
