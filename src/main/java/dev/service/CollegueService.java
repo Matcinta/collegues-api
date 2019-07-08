@@ -57,25 +57,25 @@ public class CollegueService {
 
         // TODO Vérifier que le nom et les prenoms ont chacun au moins 2 caractères
         if (collegueAAjouter.getNom().length() < TAILLE_NOM_MINIMUM) {
-            throw new CollegueInvalideException("Erreur de saisi sur  le nom");
+            throw new CollegueInvalideException("Erreur de saisie sur  le nom");
         }
         if (collegueAAjouter.getPrenom().length() < TAILLE_PRENOM_MINIMUM) {
-            throw new CollegueInvalideException("Erreur de saisi sur  le prénom");
+            throw new CollegueInvalideException("Erreur de saisie sur  le prénom");
         }
 
         // TODO Vérifier que l'email a au moins 3 caractères et contient `@`
         else if (collegueAAjouter.getEmail().length() < TAILLE_EMAIL_MINIMUM || !collegueAAjouter.getEmail().contains("@")) {
-            throw new CollegueInvalideException("Erreur de saisi sur  le mail");
+            throw new CollegueInvalideException("Erreur de saisie sur  le mail");
         }
 
         // TODO Vérifier que la photoUrl commence bien par `http`
         else if (!collegueAAjouter.getPhotoUrl().contains("http")) {
-            throw new CollegueInvalideException("Erreur de saisi sur  le lien");
+            throw new CollegueInvalideException("Erreur de saisie sur  le lien");
         }
 
         // TODO Vérifier que la date de naissance correspond à un age >= 18
         else if (period.getYears() < AGE_MINIMUM) {
-            throw new CollegueInvalideException();
+            throw new CollegueInvalideException("Attention mineur!");
         }
 
         // TODO Si une des règles ci-dessus n'est pas valide, générer une exception :
@@ -101,7 +101,7 @@ public class CollegueService {
 
         // TODO Vérifier que l'email a au moins 3 caractères et contient `@`
         else if (email.length() < TAILLE_EMAIL_MINIMUM || !email.contains("@")) {
-            throw new CollegueInvalideException("Erreur de saisi sur  le mail");
+            throw new CollegueInvalideException("Erreur de saisie sur  le mail");
         }
         // TODO Si la règle ci-dessus n'est pas valide, générer une exception :
         // `CollegueInvalideException`. avec un message approprié.

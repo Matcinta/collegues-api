@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class CollegueInvalideExceptionHandler {
     @ResponseBody
     @ExceptionHandler(CollegueInvalideException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     String collegueInvalideHandler(CollegueInvalideException ex) {
       return ex.getMessage();
     }
