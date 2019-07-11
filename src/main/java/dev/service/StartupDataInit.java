@@ -1,6 +1,9 @@
 package dev.service;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,19 +22,63 @@ public class StartupDataInit {
         @Autowired
         CollegueRepository collegueRepo;
       
-
+        static final List<String> listeNomsColleguesInit = Arrays.asList("MARTIN",
+                                                    "BERNARD",
+                                                    "THOMAS",
+                                                    "PETIT",
+                                                    "ROBERT",
+                                                    "RICHARD",
+                                                    "DURAND",
+                                                    "DUBOIS",
+                                                    "MOREAU",
+                                                    "LAURENT",
+                                                    "SIMON",
+                                                    "MICHEL",
+                                                    "LEFEBVRE",
+                                                    "LEROY",
+                                                    "ROUX",
+                                                    "DAVID",
+                                                    "BERTRAND",
+                                                    "MOREL",
+                                                    "FOURNIER",
+                                                    "GIRARD",
+                                                    "BONNET",
+                                                    "DUPONT",
+                                                    "LAMBERT",
+                                                    "FONTAINE",
+                                                    "ROUSSEAU",
+                                                    "VINCENT",
+                                                    "MULLER",
+                                                    "LEFEVRE",
+                                                    "FAURE",
+                                                    "ANDRE",
+                                                    "MERCIER");
+        
+        static final List<String> listePrenomsColleguesInit = Arrays.asList("MARTIN",
+                "Vita",
+                "Louise",
+                "Nuria",
+                "Marie",
+                "LAURENT",
+                "SIMON",
+                "MICHELLE",
+                "Simone", 
+                "DAVID",
+                "BERTRAND",
+                "LAMBERT",
+                "VINCENT",
+                "ANDRE");
+        
         // La méthode init va être invoquée au démarrage de l'application.
         @EventListener(ContextRefreshedEvent.class)
         public void init() {
-
-            Collegue collegue1 = new Collegue("Dupont", "Roger", "roger.dupont@gmail.com", LocalDate.of(1978, 10, 21), "http://monimage.fr");
-            Collegue collegue2 = new Collegue("Wijaya", "Vita", "vita.wijaya@gmail.com", LocalDate.of(1998, 5, 14), "http://tonimage.fr");
-            Collegue collegue3 = new Collegue("Diawara", "Fatoumata", "fatoumata.diawara@gmail.com", LocalDate.of(1999, 1, 12), "http://sonimage.fr");
-            Collegue collegue4 = new Collegue("Picasso", "Pablo", "pablo.picasso@gmail.com", LocalDate.of(2001, 12, 31), "http://vosimages.fr");
             
-            collegueRepo.save(collegue1);
-            collegueRepo.save(collegue2);
-            collegueRepo.save(collegue3);
-            collegueRepo.save(collegue4);
+        Random r = new Random();  
+        for(int i = 0; i<50; i++) {
+            collegueRepo.save(new Collegue(listeNomsColleguesInit.get(r.nextInt(listeNomsColleguesInit.size())),
+                    listePrenomsColleguesInit.get(r.nextInt(listePrenomsColleguesInit.size())), "nom.prenom@gmail.com", LocalDate.of(r.nextInt(50)+1970, r.nextInt(12)+1, r.nextInt(28)+1), "http://monimage.jpg"));
+            
+        }
+            
         }
     }
