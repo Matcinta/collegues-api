@@ -73,12 +73,17 @@ public class StartupDataInit {
         @EventListener(ContextRefreshedEvent.class)
         public void init() {
             
+            collegueRepo.save(new Collegue("Capitaine", "Haddock", "capitaine.haddock@herge.com", LocalDate.of(1978, 10, 05), "https://www.tintin.com/tintin/persos/haddock/haddock.jpg"));
+            collegueRepo.save(new Collegue("Professeur", "Tournesol", "professeur.tournesol@herge.com", LocalDate.of(1974, 02, 10), "https://www.tintin.com/tintin/persos/tournesol/tournesol.jpg"));
+            collegueRepo.save(new Collegue("Méchant", "Rastapoupoulos", "méchant.rastapoupoulos@herge.com", LocalDate.of(1976, 10, 15), "https://www.tintin.com/tintin/persos/rasta/rasta.jpg"));
+            
         Random r = new Random();  
         for(int i = 0; i<50; i++) {
             collegueRepo.save(new Collegue(listeNomsColleguesInit.get(r.nextInt(listeNomsColleguesInit.size())),
                     listePrenomsColleguesInit.get(r.nextInt(listePrenomsColleguesInit.size())), "nom.prenom@gmail.com", LocalDate.of(r.nextInt(50)+1970, r.nextInt(12)+1, r.nextInt(28)+1), "https://www.w3schools.com/howto/img_avatar2.png"));
             
         }
+        
             
         }
     }
