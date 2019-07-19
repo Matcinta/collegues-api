@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 import dev.Collegue;
 import dev.CollegueRepository;
 
@@ -31,8 +33,11 @@ public class CollegueService {
 
     }
 
-    public List<Collegue> lister() {
-        return collegueRepository.findAll();
+    public List<CollegueLight> lister() {
+        return collegueRepository.findAll()
+                .stream()
+                .map(c -> new CollegueLight(c.getMatricule(), c.getNom(), c.getPrenom(), c.getPhotoUrl()))
+                .collect(Collectors.toList());
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

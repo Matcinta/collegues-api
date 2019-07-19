@@ -76,7 +76,7 @@ public class StartupDataInit {
         Random r = new Random();  
         for(int i = 0; i<50; i++) {
             collegueRepo.save(new Collegue(listeNomsColleguesInit.get(r.nextInt(listeNomsColleguesInit.size())),
-                    listePrenomsColleguesInit.get(r.nextInt(listePrenomsColleguesInit.size())), "nom.prenom@gmail.com", LocalDate.of(r.nextInt(50)+1970, r.nextInt(12)+1, r.nextInt(28)+1), "http://monimage.jpg"));
+                    listePrenomsColleguesInit.get(r.nextInt(listePrenomsColleguesInit.size())), "nom.prenom@gmail.com", LocalDate.of(r.nextInt(50)+1970, r.nextInt(12)+1, r.nextInt(28)+1), "https://www.w3schools.com/howto/img_avatar2.png"));
             
         }
             

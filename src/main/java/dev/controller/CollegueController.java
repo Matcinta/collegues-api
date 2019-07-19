@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.Collegue;
 import dev.service.CollegueInvalideException;
+import dev.service.CollegueLight;
 import dev.service.CollegueNonTrouveException;
 import dev.service.CollegueService;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/collegue")
 public class CollegueController {
@@ -80,4 +82,15 @@ public class CollegueController {
         
         return collegueService.chercherParMatricule(matricule);
     }
+    
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/galerie"
+            )
+    
+    public List<CollegueLight> getAllColleguesPhotos (){
+        List<CollegueLight> collegues = collegueService.lister();
+        return collegues;
+    }
+    
 }
