@@ -1,6 +1,7 @@
 package dev;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ public class Collegue {
     private String email;
     private LocalDate dateDeNaissance;
     private String photoUrl;
+    
   
     
     public Collegue() {
@@ -37,6 +39,7 @@ public class Collegue {
         this.email = email;
         this.dateDeNaissance = dateDeNaissance;
         this.photoUrl = photoUrl;
+       
     }
     public String getMatricule() {
         return matricule;
@@ -74,11 +77,16 @@ public class Collegue {
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
+    
+    
+    
     @Override
     public String toString() {
         return "matricule : " + matricule + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
                 + ", dateDeNaissance=" + dateDeNaissance + ", photoUrl=" + photoUrl + "]";
     }
+
+   
     
     
     
