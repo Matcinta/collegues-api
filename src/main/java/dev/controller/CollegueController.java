@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -97,12 +99,23 @@ public class CollegueController {
     
     @GetMapping("/me")
     public String get() {
-      return "ceci est un exemple de GET";
+      return SecurityContextHolder.getContext().getAuthentication().getName();
     }
     
-    @PostMapping("/me")
+    @PostMapping("/auth")
     public String post() {
       return "ceci est un exemple de POST";
+    }
+    
+    @GetMapping("/admin")
+    public String getAdmin() {
+      return "ceci est un exemple de GET /admin (role ADMIN)";
+    }
+ 
+    @Secured("ROLE_ADMIN")
+    @GetMapping("/dba")
+    public String getDBA() {
+      return "ceci est un exemple de GET /dba (rôle ADMIN)";
     }
     
 }
