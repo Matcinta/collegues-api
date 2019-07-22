@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // désactivation de la protection CSRF
         // non utilisée dans le cadre d'une Web API
         .csrf().disable()
+        .cors().and()
         .authorizeRequests()
                
         

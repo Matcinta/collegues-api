@@ -111,10 +111,6 @@ public class CollegueController {
     }
     
     
-    @PostMapping("/auth")
-    public String post() {
-      return "ceci est un exemple de POST";
-    }
     
     @GetMapping("/admin")
     public String getAdmin() {
