@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import dev.service.CollegueUser;
+
 public interface CollegueRepository extends JpaRepository<Collegue, String> {
 
     List<Collegue> findByNom(String nom);
@@ -12,4 +14,6 @@ public interface CollegueRepository extends JpaRepository<Collegue, String> {
     Optional<Collegue> findByMatricule(String matricule);
     
     Optional<Collegue> findByEmail(String email);
+    
+    
 }

@@ -21,6 +21,7 @@ import dev.service.CollegueInvalideException;
 import dev.service.CollegueLight;
 import dev.service.CollegueNonTrouveException;
 import dev.service.CollegueService;
+import dev.service.CollegueUser;
 
 @CrossOrigin
 @RestController
@@ -97,10 +98,18 @@ public class CollegueController {
         return collegues;
     }
     
-    @GetMapping("/me")
-    public String get() {
-      return SecurityContextHolder.getContext().getAuthentication().getName();
+    
+    
+    @RequestMapping(
+            method = RequestMethod.GET, 
+            path = "/me")
+
+    public CollegueUser recupCollegueFromEmail() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        CollegueUser collegue = collegueService.chercherParEmail(email);
+        return collegue;
     }
+    
     
     @PostMapping("/auth")
     public String post() {

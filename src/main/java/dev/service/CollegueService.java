@@ -53,6 +53,12 @@ public class CollegueService {
     public Collegue chercherParMatricule(String matricule) {
         return collegueRepository.findByMatricule(matricule).orElseThrow(() -> new CollegueNonTrouveException());
     }
+    
+    public CollegueUser chercherParEmail(String email) {
+        return collegueRepository.findByEmail(email)
+                .map(c -> new CollegueUser(c.getMatricule(), c.getNom(), c.getPrenom(), c.getRoles()))
+                .orElseThrow(() -> new CollegueNonTrouveException());
+    }
 
     public Collegue ajouterUnCollegue(Collegue collegueAAjouter) {
 

@@ -48,7 +48,7 @@ public class Collegue {
         this.photoUrl = photoUrl;
        
     }
-     
+    
     
     public Collegue(String nom, String prenom, String email, LocalDate dateDeNaissance, String photoUrl,
             String motDePasse, List<String> roles) {
