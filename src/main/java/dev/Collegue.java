@@ -1,17 +1,14 @@
 package dev;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.PersistenceContext;
-
-import org.springframework.stereotype.Repository;
 
 @Entity
 public class Collegue {
@@ -24,16 +21,26 @@ public class Collegue {
     private LocalDate dateDeNaissance;
     private String photoUrl;
     
+    private String motDePasse;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles = new ArrayList<>();
+    
   
     
     public Collegue() {
         this.matricule = UUID.randomUUID().toString();
     }
     
+    public Collegue(String email, String password, List<String> roles) {
+        this.email = email;
+        this.motDePasse = password;
+        this.roles = roles;
+      }
+    
     public Collegue(String nom, String prenom, String email, LocalDate dateDeNaissance,
             String photoUrl) {
-        super();
-        this.matricule = UUID.randomUUID().toString();
+        this();
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -41,6 +48,31 @@ public class Collegue {
         this.photoUrl = photoUrl;
        
     }
+     
+    
+    public Collegue(String nom, String prenom, String email, LocalDate dateDeNaissance, String photoUrl,
+            String motDePasse, List<String> roles) {
+        this(nom, prenom, email, dateDeNaissance, photoUrl);
+        this.motDePasse = motDePasse;
+        this.roles = roles;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
     public String getMatricule() {
         return matricule;
     }

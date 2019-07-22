@@ -1,13 +1,9 @@
 package dev.service;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class CollegueLight {
 
-    @Id
+    
     private String matricule;
     private String nom;
     private String prenom;
