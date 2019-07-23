@@ -20,7 +20,7 @@ import dev.InfosAuthentification;
 import io.jsonwebtoken.Jwts;
 
 @RestController
-@CrossOrigin
+@CrossOrigin (allowCredentials = "true")
 public class AuthentificationCtrl {
     
     @Value("${jwt.expires_in}")

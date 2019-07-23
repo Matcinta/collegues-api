@@ -23,7 +23,7 @@ import dev.service.CollegueNonTrouveException;
 import dev.service.CollegueService;
 import dev.service.CollegueUser;
 
-@CrossOrigin
+@CrossOrigin (allowCredentials = "true")
 @RestController
 @RequestMapping("/collegue")
 public class CollegueController {
